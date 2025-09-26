@@ -1,0 +1,217 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Body + Background */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  
+    /* Foto background */
+    background: url("img/01.jpg") no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+  }
+  
+  /* Overlay transparan gelap */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* atur tingkat gelapnya */
+    z-index: -1;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    background: rgba(165, 162, 162, 0.685);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(255, 249, 249, 0.2);
+  }
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  header p {
+    font-size: 1rem;
+    color: rgb(221, 213, 213);
+  }
+  
+  /* Galeri Grid */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* jarak antar foto */
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  .card {
+    background: rgba(235, 229, 229, 0.9);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+  .card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  .card .info {
+    padding: 12px;
+  }
+  .card .name {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .card .nim {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 60px;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 95%;   /* lebih besar */
+    max-height: 65vh; /* hampir penuh layar */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    transition: transform 0.2s ease;
+  }
+  #caption {
+    margin-top: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    background: rgba(0,0,0,0.6); /* biar teks jelas */
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .close:hover {
+    color: #ccc;
+  }
+  
+  /* Tombol navigasi modal */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    margin-top: -30px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.3s;
+    border-radius: 3px;
+    user-select: none;
+  }
+  .next {
+    right: 20px;
+  }
+  .prev {
+    left: 20px;
+  }
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.6);
+  }
+  
+  /* Tombol Zoom */
+  .zoom-controls {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .zoom-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 5px;
+    background: #0077ff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.2s;
+  }
+  .zoom-btn:hover {
+    background: #ebeef1;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    background: rgba(189, 189, 189, 0.9);
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0 -2px 6px rgba(235, 229, 229, 0.2);
+  }
+  
+  .modal-actions a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #f7f7f7; /* biru default */
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+  .modal-actions a:hover {
+    background: #005fcc;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    /* Gradasi warna */
+    background: linear-gradient(90deg, #ff5d5d, #490808, #f10101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  
+    /* Efek animasi gradasi bergerak */
+    background-size: 200% auto;
+    animation: gradientMove 4s linear infinite;
+  }
+  
+  /* Animasi gradient */
+  @keyframes gradientMove {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+  
+  

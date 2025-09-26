@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login ELINS 23</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+
+      /* TEMPAT BACKROUND */
+      background-image: url("img/01.jpg"); 
+      background-size: cover;        /* foto menutupi layar penuh */
+      background-repeat: no-repeat;  /* jangan diulang */
+      background-position: center;   /* posisi di tengah */
+      height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 350px;
+      background: rgb(248, 248, 248); /* putih agak transparan biar teks jelas */
+      border: 1px solid #dbdbdb;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #262626;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background: #fafafa;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 12px;
+      background: #0095f6;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0077cc;
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>ELINS 23</h1>
+    <li>butuh username dan password</li>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Masuk</button>
+    <p class="error" id="error"></p>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === "elins23" && pass === "12345") {
+        window.location.href = "elins.html"; // masuk ke halaman utama
+      } else {
+        document.getElementById("error").innerText = "Username atau password salah!";
+      }
+    }
+  </script>
+
+</body>
+</html>
